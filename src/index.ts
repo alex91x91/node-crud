@@ -1,9 +1,12 @@
 import express from "express";
-import { createServer } from "http";
 
 const app = express();
-const server = createServer(app);
+const PORT = 5000;
 
-server.listen({ port: 8000 }, () => {
+app.get('/', (req, res) => {
+    res.send('It works');
+})
+
+app.listen(PORT, () => {
     console.log("Our server is running!");
 });
