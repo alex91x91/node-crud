@@ -7,8 +7,8 @@ class CoinAPIService {
     try {
       const response = await fetch(`${this.url}/exchanges`, {
         headers: {
-          'Content-Type': 'application/json',
-          'X-CoinAPI-Key': 'ACC1AA8B-F537-4DF0-82D7-2279DB6D59E5'
+          'Content-Type': 'application/json'
+          /* 'X-CoinAPI-Key': your key */
         }
       });
 
@@ -24,8 +24,8 @@ class CoinAPIService {
     try {
       const response = await fetch(`${this.url}/exchanges/${exchange_id}`, {
         headers: {
-          'Content-Type': 'application/json',
-          'X-CoinAPI-Key': 'ACC1AA8B-F537-4DF0-82D7-2279DB6D59E5'
+          'Content-Type': 'application/json'
+          /* 'X-CoinAPI-Key': your key */
         }
       });
 
