@@ -4,8 +4,11 @@ import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError } from '@sgtickets/common';
 
-import { getExchanges } from './routes/getExchanges';
-import { getExchangesById } from './routes/getExchangesById';
+import { createUser } from './routes';
+import { updateUser } from './routes';
+import { getCurrentUser } from './routes';
+import { deleteUser } from './routes';
+import { listUsers } from './routes';
 
 const app = express();
 app.set('trust proxy', true);
@@ -18,8 +21,11 @@ app.use(
   })
 );
 
-app.use(getExchanges);
-app.use(getExchangesById);
+app.use(createUser);
+app.use(updateUser);
+app.use(getCurrentUser);
+app.use(deleteUser);
+app.use(listUsers);
 
 app.all('*', async () => {
   throw new NotFoundError();
