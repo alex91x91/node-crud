@@ -1,9 +1,14 @@
-import express from "express";
-import { createServer } from "http";
+import app from './app';
+import { connectToMySQL } from './services/sequelize';
 
-const app = express();
-const server = createServer(app);
+const start = async () => {
+  console.log('Starting up........');
 
-server.listen({ port: 8000 }, () => {
-    console.log("Our server is running!");
-});
+  await connectToMySQL();
+
+  app.listen(3000, () => {
+    console.log('Listening on port 3000!!!!!!!!');
+  });
+};
+
+start();
