@@ -1,1 +1,2 @@
-export { User } from './User';
+export { Class } from './Class';
+export { initRelations } from './initRelations';
