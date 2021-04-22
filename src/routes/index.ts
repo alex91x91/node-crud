@@ -1,1 +1,1 @@
-export { dbQueries } from './dbQueries';
+export { imageUpload } from './imageUpload';

@@ -1,13 +1,15 @@
 import express from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
+import cors from 'cors';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError } from '@sgtickets/common';
 
-import { dbQueries } from './routes';
+import { imageUpload } from './routes';
 
 const app = express();
 app.set('trust proxy', true);
+app.use(cors());
 app.use(json());
 app.use(
   cookieSession({
@@ -17,7 +19,7 @@ app.use(
   })
 );
 
-app.use(dbQueries);
+app.use(imageUpload);
 
 app.all('*', async () => {
   throw new NotFoundError();
